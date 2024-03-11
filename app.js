@@ -24,6 +24,29 @@ document.addEventListener("DOMContentLoaded", event => {
         location.href = "https://frontendmasters.com";
     });
 
+
+    // We prevent the browser from showing the default install prompt, but
+    // we keep a reference to the event in a variable
+    let bipEvent = null;
+    window.addEventListener("beforeinstallprompt", event => {
+        event.preventDefault();
+        bipEvent = event;
+
+    });
+
+    // We add an event listener to the install button
+    document.querySelector("#btnInstall").addEventListener("click", event => {
+        if (bipEvent) {
+            bipEvent.prompt();
+        } else {
+            // incompatible browser, your PWA is not passing the creiteria, the
+            // user has already installed the PWA 
+            // TODO: show the user information on how to install the PWA
+            alert("To install the app, look for Add to Homescreen or Install in your browser's menu")
+        }
+    });
+
+
     document.querySelector("#btnShare").addEventListener("click", event => {
         let notesString = "";
         for (let note of notes) {

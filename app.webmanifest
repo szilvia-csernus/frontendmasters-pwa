@@ -23,5 +23,13 @@
 				"type": "image/png",
                 "purpose": "maskable"
 			}
+		],
+	"description": "This app lets you add notes while you are coding.",
+	"screenshots": [
+			{
+				"src": "icons/screenshot.png",
+				"sizes": "828x1792",
+				"type": "image/png"
+			}
 		]
 }
