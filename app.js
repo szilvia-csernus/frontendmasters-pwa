@@ -22,6 +22,22 @@ document.addEventListener("DOMContentLoaded", event => {
 
     document.querySelector("#btnLearn").addEventListener("click", event => {
         location.href = "https://frontendmasters.com";
+    });
+
+    document.querySelector("#btnShare").addEventListener("click", event => {
+        let notesString = "";
+        for (let note of notes) {
+            notesString += note + " | "
+        }
+        if (navigator.share) {
+            navigator.share({
+                title: "Codepad",
+                text: notesString,
+                url: location.href
+            });
+        } else {
+            alert("Web Share API not supported in your browser");
+        }
     })
 })
 
