@@ -37,6 +37,7 @@ self.addEventListener("fetch", event => {
 });
 
 // Network first strategy
+// With this strategy, we are not updating the cache!
 self.addEventListener('fetch', event => {
     event.respondWith(
       fetch(event.request) // I go to the network ALWAYS
@@ -50,7 +51,7 @@ self.addEventListener('fetch', event => {
   });
 
 
-// State while revalidate strategy
+// Stale while revalidate strategy
 self.addEventListener('fetch', event => {
     event.respondWith(
         caches.match(event.request)
