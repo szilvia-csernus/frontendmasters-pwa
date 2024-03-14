@@ -11,3 +11,8 @@
 * `Share` functionality,
 * custom `Install` functionality with own button,
 * custom Installation view on Android devices with "screenshots".
+
+
+### Starting the development server:
+
+`npx serve .`
